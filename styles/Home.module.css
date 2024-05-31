@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+.body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(145deg, #cfcfcf, #f0f0f0);
+}
+
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 20px;
+  color: #333;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 150px);
+  grid-template-rows: repeat(3, 150px);
+  gap: 15px;
+  margin: 20px auto;
+  justify-content: center;
+}
+
+.cell {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  background: linear-gradient(145deg, #e6e6e6, #ffffff);
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px #cccccc, -5px -5px 10px #ffffff;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.cell:hover {
+  background: linear-gradient(145deg, #d1d1d1, #e6e6e6);
+  transform: scale(1.05);
+  box-shadow: 8px 8px 16px #cccccc, -8px -8px 16px #ffffff;
+}
+
+.status {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #333;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 20px;
+}
+
+.inputContainer input,
+.inputContainer button,
+.inputContainer select {
+  font-size: 1rem;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  width: 80%;
+  box-shadow: 5px 5px 10px #aaaaaa, -5px -5px 10px #ffffff;
+  transition: all 0.3s ease;
+}
+
+.inputContainer input,
+.inputContainer select {
+  border: 2px solid #333;
+  background: linear-gradient(145deg, #e6e6e6, #ffffff);
+}
+
+.inputContainer input:focus,
+.inputContainer select:focus {
+  border-color: #555;
+  box-shadow: 5px 5px 10px #888888, -5px -5px 10px #ffffff;
+  outline: none;
+}
+
+.inputContainer button {
+  border: none;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+}
+
+.inputContainer button:hover {
+  background-color: #555;
+  box-shadow: 5px 5px 10px #888888, -5px -5px 10px #ffffff;
+}
+
+.inputContainer button:active {
+  background-color: #111;
+  box-shadow: 3px 3px 5px #666666, -3px -3px 5px #ffffff;
+}
+
+/* Fireworks Animation */
+.fireworks {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.firework {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  opacity: 0;
+  animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/* Winner text animation */
+.winnerText {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  font-weight: bold;
+  color: #ff0000;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  z-index: 2000;
+  animation: showWinner 2s ease-in-out forwards;
+}
+
+@keyframes showWinner {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Scoreboard */
+.scoreboard {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  max-width: 400px;
+  margin-top: 20px;
+}
+
+.score {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px;
+  background: linear-gradient(145deg, #e6e6e6, #ffffff);
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px #aaaaaa, -5px -5px 10px #ffffff;
+  text-align: center;
+}
+
+.roomList {
+  margin-top: 20px;
+}
+
+.roomGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.roomCard {
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 250px;
+  text-align: center;
+}
+
+.roomCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.roomCard h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.roomCard p {
+  margin: 10px 0;
+  color: #555;
+}
+
+.roomCard button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.roomCard button:hover {
+  background-color: #555;
+}
